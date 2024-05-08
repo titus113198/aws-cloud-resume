@@ -54,12 +54,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-const counter = document.querySelector(".counter-number");
-async function updateCounter() {
-    let response = await fetch(
-        "https://j536xu7mdymul76krja65n4af40pkila.lambda-url.us-east-1.on.aws/"
-    );
-    let data = await response.json();
-    counter.innerHTML = `👀 Views: ${data}`;
-}
-updateCounter();
+fetch('https://j536xu7mdymul76krja65n4af40pkila.lambda-url.us-east-1.on.aws/')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    document.getElementById('result').innerHTML = JSON.stringify(data);
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
