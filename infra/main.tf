@@ -3,8 +3,8 @@ resource "aws_lambda_function" "myfunc" {
   source_code_hash = data.archive_file.zip_the_python_code.output_base64sha256
   function_name    = "myfunc"
   role             = aws_iam_role.iam_for_lambda.arn
-  handler          = "func.handler"
-  runtime          = "python3.8"
+  handler          = "func.lambda_handler"
+  runtime          = "python3.12"
 }
 
 resource "aws_iam_role" "iam_for_lambda" {
@@ -48,7 +48,7 @@ resource "aws_iam_policy" "iam_policy_for_resume_project" {
         {
           "Effect" : "Allow",
           "Action" : [
-            "dynamodb:*",
+            "dynamodb:*"
           ],
           "Resource" : "arn:aws:dynamodb:*:*:table/cloud-resume-challenge"
         },
@@ -74,7 +74,7 @@ resource "aws_lambda_function_url" "url1" {
 
   cors {
     allow_credentials = true
-    allow_origins     = ["*"]
+    allow_origins     = ["https://resume.greeneteck.com"]
     allow_methods     = ["*"]
     allow_headers     = ["date", "keep-alive"]
     expose_headers    = ["keep-alive", "date"]
