@@ -9,7 +9,7 @@ body{
     --color-black: #000000;
     --color-white: #ffffff;
     --color-border: #ffffff34;
-    --color-blue: #6C63FF;
+    --color-blue: #10abf8;
     --font-staat: 'Staatliches', cursive;
     --font-os:  'Oswald', sans-serif;
     --font-ram: 'Rambla', sans-serif;
@@ -69,6 +69,7 @@ body{
     margin: .7rem 1rem;
     border-bottom: 1px solid var(--color-border);
     text-transform: uppercase;
+    color: var(--color-white) !important;
 }
 
 #header .nav-link:hover{
@@ -221,4 +222,24 @@ body{
 
 .eye :hover{
     color: var(--color-white);
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+    float: left;
+    width: 25%;
+    padding: 50px;
+    text-align: justify;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.column img {
+    display: block;
+    margin: 0 auto;
 }
