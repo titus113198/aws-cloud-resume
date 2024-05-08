@@ -49,7 +49,8 @@ resource "aws_iam_policy" "iam_policy_for_resume_project" {
           "Effect" : "Allow",
           "Action" : [
             "dynamodb:UpdateItem",
-			      "dynamodb:GetItem"
+			      "dynamodb:GetItem",
+            "dynamodc:PutItem",
           ],
           "Resource" : "arn:aws:dynamodb:*:*:table/cloud-resume-challenge"
         },
